@@ -18,3 +18,5 @@ audio/
 
 node_modules/
 !demo/sunflower-svg.mp4
+
+!demo/sunflower-program-full.mp4
