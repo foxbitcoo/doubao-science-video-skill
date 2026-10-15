@@ -67,6 +67,9 @@ def render(manifest, output):
     font = config.get('font', 'sans-serif')
     if any(c in font for c in ',\r\n'):
         raise ValueError('Invalid font name')
+    margin = int(config.get('subtitle_margin_v', 38))
+    if not 20 <= margin <= 300:
+        raise ValueError('subtitle_margin_v must be between 20 and 300')
     prepared, ids = [], set()
     for segment in segments:
         sid = segment['id']
@@ -114,7 +117,7 @@ def render(manifest, output):
                 srt.append(f'{len(srt)+1}\n{stamp(offset+a)} --> {stamp(offset+b)}\n{cue["text"]}')
             ass = ('[Script Info]\nScriptType: v4.00+\nPlayResX: 1280\nPlayResY: 720\n'
                    '[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n'
-                   f'Style: Default,{font},30,&H00FFFFFF,&H00000000,&H00202020,&H80000000,0,0,0,0,100,100,0,0,1,2,0,2,48,48,38,1\n'
+                   f'Style: Default,{font},30,&H00FFFFFF,&H00000000,&H00202020,&H80000000,0,0,0,0,100,100,0,0,1,2,0,2,48,48,{margin},1\n'
                    f'Style: Label,{font},20,&H00FFFFFF,&H00000000,&H00202020,&H80000000,0,0,0,0,100,100,0,0,1,1,0,9,24,24,20,1\n'
                    '[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n' + '\n'.join(events))
             (root / 'captions.ass').write_text(ass)

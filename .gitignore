@@ -15,3 +15,6 @@ audio/
 
 # Only the reviewed public demo may be tracked.
 !demo/sunflower-science.mp4
+
+node_modules/
+!demo/sunflower-svg.mp4

@@ -17,6 +17,20 @@
 
 详见 [预算与重试控制](doubao-science-video/references/budget.md)。这是 Agent 执行规则，不是云账户的强制扣费上限；实际费用仍以账单为准。
 
+## SVG 动画通路
+
+无需调用视频生成模型，也可用本包的SVG程序动画制作成片：
+
+`SVG/HTML + renderFrame(t) → 逐帧导出MP4 → 配音与字幕合成`
+
+- [可交互向日葵模板源码](doubao-science-video/assets/sunflower-svg/scene.html)：播放、拖动、拆开及组装。
+- [依赖安装及导出说明](doubao-science-video/references/svg.md)。
+- [SVG配音字幕小样（约21秒）](demo/sunflower-svg.mp4)，复用已有配音，没有新增视频或语音模型调用。
+
+![SVG萌发动画预览](demo/svg-preview.png)
+
+SVG图形本身无视频API费用；仍有Agent、代码制作、本地渲染与可能的配音成本，不能把它等同于总成本为零。
+
 ## 安装到 Codex
 
 在终端执行（需要 Git；若已安装同名 Skill，请先自行备份或移开旧版本）：

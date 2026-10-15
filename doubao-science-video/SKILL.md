@@ -41,6 +41,8 @@ description: 将科学过程或 Anatomy 交互演示制作成面向中小学生�
 
 优先使用语音接口真实时间戳或可靠转写对齐。只有按字数分配或静音停顿估计时，明确标注“估计时间轴”，必须试听校正，不声称逐字精准。字幕与最终口播逐段核对，避免挤满画面。
 
+SVG/HTML示意动画可先通过 `scripts/export_svg.mjs` 逐帧导出静音MP4，再与配音合成；制作约定、安装方法和可交互模板见 [references/svg.md](references/svg.md)。可全片采用程序动画，生成视频秒数可以为0，不必用满20元预算。
+
 本包提供确定性后期脚本，格式见 [references/render.md](references/render.md)：
 
 ```bash
